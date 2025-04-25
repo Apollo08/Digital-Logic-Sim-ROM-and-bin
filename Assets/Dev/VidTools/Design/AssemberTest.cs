@@ -65,6 +65,18 @@ namespace DLS.Dev
 
 
 			LogUnusedOpCodes();
+                        // Add test for 524288x16 ROM
+                        Debug.Log("Testing 524288x16 ROM...");
+                        UInt16[] largeControlUnitROM = new UInt16[524288];
+
+                        for (int i = 0; i < largeControlUnitROM.Length; i++)
+                        {
+                             largeControlUnitROM[i] = (UInt16)(i % 65536); // Populate test data
+                        }
+
+                        Debug.Log($"Large ROM initialized with {largeControlUnitROM.Length} entries.");
+                        return largeControlUnitROM;
+
 			return controlUnitROM;
 
 			void Set(OpCode op, UInt16 control)
