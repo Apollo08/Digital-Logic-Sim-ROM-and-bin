@@ -237,6 +237,12 @@ namespace DLS.Game
 		public void NotifyRomContentsEdited(SubChipInstance romChip)
 		{
 			SimChip simChip = rootSimChip.GetSubChipFromID(romChip.ID);
+                        	// Handle the new ROM type
+	                if (romChip.Description.ChipType == ChipType.Rom_524288x16)
+	                {
+		                // Special handling for large ROMs
+		                Debug.Log("Editing contents of 524288x16 ROM");
+	                }
 			simChip.UpdateInternalState(romChip.InternalData);
 		}
 
