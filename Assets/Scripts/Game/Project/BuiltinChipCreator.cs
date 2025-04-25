@@ -103,8 +103,15 @@ namespace DLS.Game
 
                 static ChipDescription CreateROM_524288x16()
                 {
-	               PinDescription[] inputPins = { CreatePinDescription("ADDRESS", 0, PinBitCount.Bit19) }; // 19-bit for addressing 524288 words
-	               PinDescription[] outputPins = { CreatePinDescription("OUT", 1, PinBitCount.Bit16) };
+	               PinDescription[] inputPins = 
+                       { 
+                                CreatePinDescription("ADDRESS", 0, PinBitCount.Bit8)
+                        }; // 19-bit for addressing 524288 words
+	               PinDescription[] outputPins = 
+                       { 
+                        CreatePinDescription("OUT B", 1, PinBitCount.Bit8),
+                        CreatePinDescription("OUT A", 2, PinBitCount.Bit8)
+                        };
 
 	               Color col = new(0.25f, 0.35f, 0.5f);
 	               Vector2 size = new(GridSize * 20, SubChipInstance.MinChipHeightForPins(inputPins, outputPins));
