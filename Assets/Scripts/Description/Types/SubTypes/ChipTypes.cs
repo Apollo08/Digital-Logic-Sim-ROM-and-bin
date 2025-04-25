@@ -13,6 +13,7 @@ namespace DLS.Description
 		// ---- Memory ----
 		dev_Ram_8Bit,
 		Rom_256x16,
+		Rom_524288x16, // New ROM chip added here
 
 		// ---- Displays ----
 		SevenSegmentDisplay,
@@ -45,6 +46,5 @@ namespace DLS.Description
 		BusTerminus_4Bit,
 		Bus_8Bit,
 		BusTerminus_8Bit
-
 	}
 }
