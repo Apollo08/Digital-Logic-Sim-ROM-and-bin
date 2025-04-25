@@ -30,6 +30,7 @@ namespace DLS.Game
 				// ---- Memory ----
 				dev_CreateRAM_8(),
 				CreateROM_8(),
+                                CreateROM_524288x16(),
 				// ---- Merge / Split ----
 				CreateBitConversionChip(ChipType.Split_4To1Bit, PinBitCount.Bit4, PinBitCount.Bit1, 1, 4),
 				CreateBitConversionChip(ChipType.Split_8To4Bit, PinBitCount.Bit8, PinBitCount.Bit4, 1, 2),
@@ -99,6 +100,17 @@ namespace DLS.Game
 
 			return CreateBuiltinChipDescription(ChipType.Rom_256x16, size, col, inputPins, outputPins);
 		}
+
+                static ChipDescription CreateROM_524288x16()
+                {
+	               PinDescription[] inputPins = { CreatePinDescription("ADDRESS", 0, PinBitCount.Bit19) }; // 19-bit for addressing 524288 words
+	               PinDescription[] outputPins = { CreatePinDescription("OUT", 1, PinBitCount.Bit16) };
+
+	               Color col = new(0.25f, 0.35f, 0.5f);
+	               Vector2 size = new(GridSize * 20, SubChipInstance.MinChipHeightForPins(inputPins, outputPins));
+
+	        return CreateBuiltinChipDescription(ChipType.Rom_524288x16, size, col, inputPins, outputPins);
+                }
 
 		static ChipDescription CreateInputKeyChip()
 		{
