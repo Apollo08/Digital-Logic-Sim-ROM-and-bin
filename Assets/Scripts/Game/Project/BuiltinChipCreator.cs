@@ -105,12 +105,14 @@ namespace DLS.Game
                 {
 	               PinDescription[] inputPins = 
                        { 
-                                CreatePinDescription("ADDRESS", 0, PinBitCount.Bit8)
+                                CreatePinDescription("ADDR A", 0, PinBitCount.Bit8),
+                                CreatePinDescription("ADDR B", 1, PinBitCount.Bit8),
+                                CreatePinDescription("ADDR C", 2, PinBitCount.Bit4),
                         }; // 19-bit for addressing 524288 words
 	               PinDescription[] outputPins = 
                        { 
-                        CreatePinDescription("OUT B", 1, PinBitCount.Bit8),
-                        CreatePinDescription("OUT A", 2, PinBitCount.Bit8)
+                        CreatePinDescription("OUT B", 3, PinBitCount.Bit8),
+                        CreatePinDescription("OUT A", 5, PinBitCount.Bit8)
                         };
 
 	               Color col = new(0.25f, 0.35f, 0.5f);
