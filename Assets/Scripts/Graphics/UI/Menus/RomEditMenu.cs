@@ -339,7 +339,7 @@ namespace DLS.Graphics
 		public static void OnMenuOpened()
 		{
 			romChip = (SubChipInstance)ContextMenu.interactionContext;
-			RowCount = romChip.InternalData.Length;
+			RowCount = romChip.Description.ChipType == ChipType.Rom_524288x16 ? 524288 : romChip.InternalData.Length; // Adjust for the new ROM
 			ActiveRomDataBitCount = 16; //
 
 			ID_DataDisplayMode = new UIHandle("ROM_DataDisplayMode", romChip.ID);
